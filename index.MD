@@ -33,37 +33,37 @@
     ``` javascript 1.5
         function quickSort(list){
             function _qs(list,l,r){
-                if(l === r){
+                if(l >= r){
                     return;
                 }
-                
-                var temp = list[l];
                 var _l = l;
                 var _r = r;
-                
-                while(l !== r){
+                var temp = list[l];
+    
+                while(l < r){
                     while(list[r] > temp && l < r){
-                        r--; 
+                        r--;
                     }
                     while(list[l] < temp && l < r){
-                        l++; 
+                        l++;
                     }
                     if(l < r){
-                        //找到右侧比基数小左侧比基数大的两个数，进行位置交换 
-                        var t = list[r]; list[r] = list[l]; list[l] = t; 
+                        /*找到右侧比基数小左侧比基数大的两个数，交换位置*/
+                        var t = list[r]; list[r] = list[l]; list[l] = t;
                     }
                 }
-                list[l] = list[_l];
-                list[_l] = temp;
+                console.log(list);
                 _qs(list,_l,l-1);
                 _qs(list,l+1,_r);
             }
-            
+    
             if(!list || !Array.isArray(list)){
-                _qs(list, 0, list.length - 1);
                 return;
-            }   
+            }
+            _qs(list, 0, list.length - 1);
         }
+        
+        
     ```
 ###去重
 ###翻转

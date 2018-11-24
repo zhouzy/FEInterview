@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var arr = [9,8,7,6,5,11,2,12,1,0];
+    function quickSort(list){
+        function _qs(list,l,r){
+            if(l >= r){
+                return;
+            }
+            var _l = l;
+            var _r = r;
+            var temp = list[l];
+
+            while(l < r){
+                while(list[r] > temp && l < r){
+                    r--;
+                }
+                while(list[l] < temp && l < r){
+                    l++;
+                }
+                if(l < r){
+                    /*找到右侧比基数小左侧比基数大的两个数，交换位置*/
+                    var t = list[r]; list[r] = list[l]; list[l] = t;
+                }
+            }
+            console.log(list);
+            _qs(list,_l,l-1);
+            _qs(list,l+1,_r);
+        }
+
+        if(!list || !Array.isArray(list)){
+            return;
+        }
+        _qs(list, 0, list.length - 1);
+    }
+    console.log(arr);
+    quickSort(arr);
+    console.log(arr);
+</script>
+</body>
+</html>
