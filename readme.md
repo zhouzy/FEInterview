@@ -77,6 +77,9 @@
 ##HTTP
 ##POST\GET
 ##状态码
+##请求头
+##响应头
+
 #HTML  BOM  DOM
 #JavaScript
 ## 隐式转换
@@ -118,18 +121,23 @@
     C.prototype = object.create(P.prototype);
     C.prototype.constructor = C;  
     ```
+    
+##事件循环
+    
 ##ES6
 - var let const
 - map set
 - 箭头函数
-1. 默认参数
-2. this 指向定义的上下文
-3. 不能new
-4. 没有arguments
-5. 不能Generator
 
-- async await Promise
+    1. 默认参数
+    2. this 指向定义的上下文
+    3. 不能new
+    4. 没有arguments
+    5. 不能Generator
+
+- Promise
 - generator yield
+- async await 
 - class
 - module
 
