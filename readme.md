@@ -1,3 +1,10 @@
+该系列分两个部分。
+第一部分是前端工程中，所使用的基本工具包括算法、JS、CSS、HTML、网络、工具、模式等等
+的目的是为了，加深对前端工具箱中工具的熟练度；
+第二部分，主要是记录目前产品、项目中遇到的问题，然后我是怎么分析问题，然后怎么去解决的
+
+第一部分对于每一个点，说清楚是什么、怎么用、出现的原因、出现这个技术主要解决什么问题。
+
 #算法
 ##线性结构
 
@@ -125,8 +132,42 @@
 ##事件循环
     
 ##ES6
-- var let const
-- map set
+- let const
+    - let: 
+    
+    let 用于声明变量，它有以下几个特性；
+    1. 只在作用域中有效
+    ```javascript 1.6
+    {
+      let a = "1"; 
+      var b = "1"; 
+    }
+    console.log(b);//1
+    console.log(a);//error
+    ```
+    
+    2. 不会变量提升
+    let 声明变量，不会变量提升
+    ```javascript 1.6
+    var a = 234;
+    {
+      console.log(b);//undefined
+      console.log(a);//error
+      let a = 123;
+      var b = 2;
+    }
+    ```
+    3. 对var定义的变量封锁
+    ```javascript 1.6
+    var a = 1;
+    {
+      let a = 2;  
+      console.log(a);
+    }
+
+    ```
+- Map Set
+
 - 箭头函数
 
     1. 默认参数
@@ -136,7 +177,12 @@
     5. 不能Generator
 
 - Promise
+
+    Promise是操作异步处理对象的组件
+    
+      
 - generator yield
+
 - async await 
 - class
 - module
