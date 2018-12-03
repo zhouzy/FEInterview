@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flex实现瀑布流布局</title>
+    <style>
+        .container{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .container__row{
+            display: flex;
+            flex-direction: row;
+            width: 20%;
+        }
+
+        .container__column{
+            display: flex;
+            flex-direction: column;
+            width:100%;
+        }
+
+        .container__item{
+            border: 1px solid #999;
+            margin:10px 0;
+        }
+    </style>
+</head>
+<body>
+<p>显示四列</p>
+<label>块个数<input id="number" type="number"/></label>
+<div id="root" class="container"></div>
+<script>
+    document.querySelector("#number").addEventListener("blur",function (){
+        let totalItem = this.value;
+        let docFragment = document.createDocumentFragment();
+
+        let rows = new Array(4);
+
+        for(let i = 0; i < totalItem; i++){
+            let l = i % 4;
+            if(rows[l] === undefined){
+                rows[l] = [];
+            }
+            rows[l].push(createBlock());
+        }
+
+        for(let j = 0; j < rows.length; j++){
+            let rowList = rows[j];
+            let rowBlock = createRow();
+            let columnBlock = createColumn();
+
+            rowList.forEach(block => {
+                columnBlock.appendChild(block);
+            });
+
+            rowBlock.appendChild(columnBlock);
+
+            docFragment.appendChild(rowBlock);
+        }
+
+        document.querySelector("#root").appendChild(docFragment);
+    });
+
+    function createRow(){
+        let block = document.createElement("div");
+        block.className = "container__row";
+        return block;
+    }
+
+    function createColumn(){
+        let block = document.createElement("div");
+        block.className = "container__column";
+        return block;
+    }
+
+    function createBlock(){
+        let block = document.createElement("div");
+        let random = Math.random();
+        let minHeight = 10;
+        let maxHeight = 100;
+        let height = Math.floor(minHeight + (maxHeight - minHeight) * random);
+        let backgroundColor = Math.floor(0xffffff * Math.random()).toString(16);
+
+        block.style = `height:${height}px; background-color:#${backgroundColor}`;
+        block.className = "container__item";
+
+        return block;
+    }
+
+</script>
+</body>
+</html>

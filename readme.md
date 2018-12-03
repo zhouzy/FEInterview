@@ -70,6 +70,9 @@
         _qs(list, 0, list.length - 1);
     }
     ```
+    
+3. 求质数
+
 ###去重
 
 ###翻转
@@ -178,6 +181,8 @@
 
 - Promise
 
+    Promise是操作异步处理对象的组件
+
     1. new Promise()
     
     ```javascript 1.6
@@ -198,13 +203,43 @@
     //打印 1 2 3
     ```
     2. then
-    
+    ```javascript 1.6
+    //then 返回的是一个新的promise
+    let p = new Promise(() => {
+      console.log("promise init");
+    });
+    let p2 = p.then(() => {
+      console.log("promise then");
+    });
+    console.log(p === p2);
+  
+    //异常处理
+    new Promise((resolve, reject) => {
+      console.log("promise init");
+      throw new Error("some error");
+      reject("reject error");
+    })
+    .then(() => {
+      console.log("promise then");
+    }, (err) => {
+      console.log("p2 catch error: %s", JSON.stringify(err));
+    })
+    .then((data) => {
+      console.log("p3 resolve: %s", JSON.stringify(data));  
+    }, (err) => {
+      console.log("p3 catch error: %s", JSON.stringify(err));  
+    })
+    .catch(err => {
+      console.log("fainlly catch error: %s", JSON.stringify(err));  
+    });
+  
+    // p2 reject 会被调用
+    // p3 resolve 会被调用
+    // catch 不会调用
+    ``` 
     3. resolve
-    4. reject
-
-
-    Promise是操作异步处理对象的组件
     
+    4. reject
       
 - generator yield
 
@@ -218,6 +253,11 @@
 #CSS
 - BFC
 - flex布局
+
+    [阮一峰老师讲得很清楚了](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
+    
+    使用 Flex 实现瀑布流布局
+
 #网络安全
 ##XSS
 ##CSRF
