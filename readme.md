@@ -136,14 +136,51 @@
     5. 不能Generator
 
 - Promise
+
+    1. new Promise()
+    
+    ```javascript 1.6
+    /**
+     * 传入的function 会立即执行
+     */
+    let p = new Promise((resolve, reject) => {
+      console.log("1");  
+      resolve(3);
+    });
+  
+    console.log("2");
+  
+    p.then((d) => {
+      console.log(d);
+    });
+  
+    //打印 1 2 3
+    ```
+    2. then
+    
+    3. resolve
+    4. reject
+
 - generator yield
 - async await 
 - class
 - module
 
 ##AMD/CMD
+### CommonJS规范
+
+module exports require global
+
+### AMD require.js
+
+异步加载 define require
+
+### CMD sea.js
+
+### ES6 module
 
 ##函数式编程
+
 #CSS
 - BFC
 - flex布局
