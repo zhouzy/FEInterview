@@ -13,7 +13,9 @@
 原生方法
 >Array.sort 不传入比较函数会先转字符串再根据Unicode比较大小
     
-1. 冒泡
+1. 插入排序
+2. 选择排序
+3. 冒泡排序
     ```javascript 1.5
     function sort(list){
         if(!list || !Array.isArray(list)){
@@ -34,8 +36,7 @@
         }
     }
     ```
-    
-2. 快排
+4. 快速排序
     
     ```javascript 1.5
     function quickSort(list){
@@ -70,8 +71,36 @@
         _qs(list, 0, list.length - 1);
     }
     ```
+
+5.堆排序    
     
-3. 求质数
+6. 1000个 1-10000 的数，求其中质数
+
+```javascript 1.6
+    let isPrime = (num) => {
+        let s = "" + num; 
+        let t = 0;
+        
+        if(num <= 1){
+            return false;
+        }
+        if(s.endsWith("5") || s.endsWith("2")){
+            return false;
+        }
+        s.split("").forEach(n => {
+            t += (+n);
+        });
+        if(t % 3 === 0){
+            return false;
+        }
+        for(let i = 2; i < (num - 1); i++){
+            if(num % i === 0){
+                return false;
+            }
+        }
+        return true;
+    }
+```
 
 ###去重
 
@@ -89,7 +118,9 @@
 ##状态码
 ##请求头
 ##响应头
-
+##网络安全
+###XSS
+###CSRF
 #HTML  BOM  DOM
 #JavaScript
 ## 隐式转换
@@ -251,16 +282,17 @@
 
 ##函数式编程
 #CSS
-- BFC
-- flex布局
+- Flex
 
     [阮一峰老师讲得很清楚了](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
     
     使用 Flex 实现瀑布流布局
 
-#网络安全
-##XSS
-##CSRF
+- BFC
+
+- Flip 效果
+
+
 #性能
 ##浏览器工作流程
 ##缓存
