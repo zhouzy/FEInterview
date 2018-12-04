@@ -5,10 +5,9 @@
 
 第一部分对于每一个点，说清楚是什么、怎么用、出现的原因、出现这个技术主要解决什么问题。
 
-#算法
-##线性结构
-
-###排序
+# 算法
+## 线性结构
+### 排序
 
 原生方法
 >Array.sort 不传入比较函数会先转字符串再根据Unicode比较大小
@@ -102,27 +101,27 @@
     }
 ```
 
-###去重
+### 去重
 
-###翻转
+### 翻转
 
-##树形结构
+## 树形结构
 
-##网状结构
+## 网状结构
 
-#网络
-##七层结构
-##三次握手
-##HTTP
-##POST\GET
-##状态码
-##请求头
-##响应头
-##网络安全
-###XSS
-###CSRF
-#HTML  BOM  DOM
-#JavaScript
+# 网络
+## 七层结构
+## 三次握手
+## HTTP
+## POST\GET
+## 状态码
+## 请求头
+## 响应头
+## 网络安全
+### XSS
+### CSRF
+# HTML  BOM  DOM
+# JavaScript
 ## 隐式转换
 ## 变量提升
 ## 继承实现方式
@@ -163,9 +162,9 @@
     C.prototype.constructor = C;  
     ```
     
-##事件循环
+## 事件循环
     
-##ES6
+## ES6
 - let const
     - let: 
     
@@ -278,10 +277,10 @@
 - class
 - module
 
-##AMD/CMD
+## AMD/CMD
 
-##函数式编程
-#CSS
+## 函数式编程
+# CSS
 - Flex
 
     [阮一峰老师讲得很清楚了](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
@@ -293,9 +292,9 @@
 - Flip 效果
 
 
-#性能
-##浏览器工作流程
-##缓存
+# 性能
+## 浏览器工作流程
+## 缓存
 - 静态资源
     1. Expires
     2. Cache-Control
@@ -319,16 +318,15 @@
     2. storage 大小限制
     3. 常用方法
     4. 事件监听
-##浏览器渲染
-##移动端
-#框架
-##Vue
-###生命周期
+## 浏览器渲染
+## 移动端
+# 框架
+## Vue
+### 生命周期
    new Vue() -> Init(Event Lifecycle) -> beforeCreate -> Init(injections reactivity) -> get Render Function -> beforeMount -> mounted -> beforeUpdate -> re-render -> update -> beforeDestroy -> destroy -> destroyed
-###双向绑定
-###依赖收集
-###watcher
+### 双向绑定
+### 依赖收集
+### Watcher
 
-#新技术
-#架构设计
-#个人成长
+# 新技术
+# 架构设计
