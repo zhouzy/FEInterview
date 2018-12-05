@@ -165,6 +165,9 @@
 ## 事件循环
     
 ## ES6
+
+> 主要参考的是阮一峰的ECMAScript 6 入门， 对其中疑惑的地方进行一个编码验证
+
 - let const
     - let: 
     
@@ -198,6 +201,89 @@
       console.log(a);
     }
 
+    ```
+- 解构赋值
+
+    >解构等式的右侧必须是一个Iterator，那么是不是，只要右侧是一个能Iterator的就能解构呢，我们来试试。
+    ```javascript 1.6
+    let obj = {
+      [Symbol.iterator]: function(){
+        return {
+          next(){
+            let num = Math.floor(Math.random() * 10);
+            if(num !== 10){
+              return {
+                  value: num,
+                  done: false  
+              }; 
+            }
+            return {
+              value: num,
+              done: true  
+            }
+          }
+        };      
+      }
+    }
+    for(let i of obj){
+      console.log(i);    
+    }
+    let [a,b,c] = obj;
+    console.log("a:%s,b:%s,c:%s", a, b, c);
+    ```
+    1. 默认值
+    > 1. 右侧严格等于 undefined ,左侧才会取默认值
+      2. 惰性求值(为什么要惰性求值？) 
+      
+    数组解构
+    ```javascript 1.6
+      let [a,b,c] = [1,2,3];
+      console.log("a:%s,b:%s,c:%s", a, b, c);
+    
+      //默认值 
+      let [a1,b1 = 4,c1] = [1,,3];
+      console.log("a1:%s,b1:%s,c1:%s", a1, b1, c1);
+    
+      // 跳空
+      let [a2,,c2] = [1,2,3];
+      console.log("a2:%s,c2:%s", a2, c2);
+    
+      //右侧不完全匹配
+      let [a3,,c3] = [1,2];
+      console.log("a3:%s,c3:%s", a3, c3);
+    
+      //嵌套
+      let [a4,[b4],c4] = [1, [3], 2];
+      console.log("a4:%s,b4:%s,c4:%s", a4, b4, c4);
+    ```
+    
+    对象解构
+    
+    ```javascript 1.6
+      let {a,b,c} = {a: 1, b:2, c:3};
+      console.log("a:%s,b:%s,c:%s", a, b, c);
+    
+      //默认值
+      let {a1=5,b1,c1} = {b1:2, c1:3};
+      console.log("a:%s,b:%s,c:%s", a1, b1, c1);
+    
+      //字面量
+      let {d:a1, b1, c1} = {d:1,b1:2, c1:3};
+      console.log("a:%s,b:%s,c:%s", a1, b1, c1);
+    ```
+      
+    函数参数解构
+    ```javascript 1.6
+      let fn = ([a,b]) => {
+          console.log("a:%s,b:%s", a, b); 
+      }
+      fn([1,2]);
+
+      //默认值
+      let fn = ([a=1,b]) => {
+          console.log("a:%s,b:%s", a, b); 
+      }
+      fn([,2]);
     ```
 - Map Set
 
@@ -330,3 +416,6 @@
 
 # 新技术
 # 架构设计
+# 软件工程
+## CI
+## codeReview
